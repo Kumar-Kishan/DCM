@@ -1,0 +1,90 @@
+.dc-layout {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.zone {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f5f5f5;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+.zone.expanded {
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.zone-header {
+    cursor: pointer;
+}
+
+.racks {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.rack {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.rack-header {
+    cursor: pointer;
+}
+
+.servers {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.server {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+    width: calc(33.33% - 10px);
+    /* Adjust the width as needed */
+    display: flex;
+    align-items: center;
+}
+
+.server-name {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.server-temperature {
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+/* Temperature Color Coding */
+.server-temperature.low {
+    background-color: #27ae60;
+    /* Green */
+}
+
+.server-temperature.medium {
+    background-color: #f1c40f;
+    /* Yellow */
+}
+
+.server-temperature.high {
+    background-color: #c0392b;
+    /* Red */
+}

@@ -1,0 +1,22 @@
+{
+  "name": "collectionworker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "b4a": "^1.6.4",
+    "corestore": "^6.6.0",
+    "dotenv": "^16.0.3",
+    "graceful-goodbye": "^1.2.1",
+    "hyperbee": "^2.12.0",
+    "hypercore": "^10.11.0",
+    "hyperdrive": "^11.0.2",
+    "hyperswarm": "^4.4.1"
+  }
+}

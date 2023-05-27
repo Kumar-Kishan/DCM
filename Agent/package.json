@@ -1,0 +1,21 @@
+{
+  "name": "agent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "corestore": "^6.6.0",
+    "graceful-goodbye": "^1.2.1",
+    "hyperbee": "^2.12.0",
+    "hypercore": "^10.11.0",
+    "hyperdrive": "^11.0.2",
+    "hyperswarm": "^4.4.1",
+    "random-access-memory": "^6.2.0"
+  }
+}

@@ -33,7 +33,7 @@ Gradually you will see the servers being added to the frontend and temperature b
 
 Screenshots of the frontend are in the screenshots folder.
 
-![Screenshot 1](/screenshots/Screenshot 1.png)
-![Screenshot 2](/screenshots/Screenshot 2.png)
-![Screenshot 3](/screenshots/Screenshot 3.png)
-![Screenshot 4](/screenshots/Screenshot 4.png)
+![Screenshot 1](/screenshots/1.jpg)
+![Screenshot 2](/screenshots/2.jpg)
+![Screenshot 3](/screenshots/3.jpg)
+![Screenshot 4](/screenshots/4.jpg)

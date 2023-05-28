@@ -9,13 +9,11 @@ function App() {
   const [data, setData] = useState([]);
   useEffect(() => {
     socket.on('data', (data) => {
-      console.log(data);
       setData(data);
     });
   }, []);
   return (
     <div>
-      <h1>Data Center Layout</h1>
       <DCLayout data={data} />
     </div>
   );

@@ -62,7 +62,7 @@ swarm.on('connection', (conn) => {
             event: 'temperature',
             temperature: temperature,
         }));
-    }, 10000);
+    }, 1000);
 
     conn.on('error', (err) => {
         console.log('connection error', err);
@@ -70,5 +70,7 @@ swarm.on('connection', (conn) => {
 
     conn.on('close', () => {
         console.log('connection closed');
+        //retry connection to the swarm
+        swarm.join(key, { client: true, server: false });
     })
 });

@@ -1,54 +1,41 @@
-import React, { useState } from 'react';
-import './index.css'; // Import the CSS file for styling
+import React, { useEffect, useState } from "react";
+import "./index.css"; // Import the CSS file for styling
 
 function DCLayout({ data }) {
-  const [expandedZones, setExpandedZones] = useState([]);
-  const [expandedRacks, setExpandedRacks] = useState([]);
+  const [collapsedZones, setCollapsedZones] = useState([]);
 
   const toggleZone = (zoneKey) => {
-    if (expandedZones.includes(zoneKey)) {
-      setExpandedZones(expandedZones.filter((key) => key !== zoneKey));
+    if (collapsedZones.includes(zoneKey)) {
+      setCollapsedZones(collapsedZones.filter((key) => key !== zoneKey));
     } else {
-      setExpandedZones([...expandedZones, zoneKey]);
-    }
-  };
-
-  const toggleRack = (rackKey) => {
-    if (expandedRacks.includes(rackKey)) {
-      setExpandedRacks(expandedRacks.filter((key) => key !== rackKey));
-    } else {
-      setExpandedRacks([...expandedRacks, rackKey]);
+      setCollapsedZones([...collapsedZones, zoneKey]);
     }
   };
 
   const renderServers = (rack) => {
     return Object.entries(rack).map(([serverKey, temperature]) => {
       const temperatureClass =
-        temperature >= 80
-          ? 'high'
-          : temperature >= 60
-          ? 'medium'
-          : 'low';
+        temperature >= 80 ? "high" : temperature >= 60 ? "medium" : "low";
 
       return (
         <div key={serverKey} className="server">
           <span className="server-name">{serverKey}</span>
-          <span className={`server-temperature ${temperatureClass}`}>{temperature}°C</span>
+          <span className={`server-temperature ${temperatureClass}`}>
+            {temperature}°C
+          </span>
         </div>
       );
     });
   };
 
-  const renderRacks = (zone, zoneKey) => {
+  const renderRacks = (zone) => {
     return Object.entries(zone).map(([rackKey, rack]) => {
-      const isRackExpanded = expandedRacks.includes(rackKey);
-
       return (
-        <div key={rackKey} className={`rack ${isRackExpanded ? 'expanded' : ''}`}>
-          <div className="rack-header" onClick={() => toggleRack(rackKey)}>
+        <div key={rackKey} className="rack expanded">
+          <div className="rack-header">
             <h4>{rackKey}</h4>
           </div>
-          {isRackExpanded && <div className="servers">{renderServers(rack)}</div>}
+          <div className="servers">{renderServers(rack)}</div>
         </div>
       );
     });
@@ -56,15 +43,20 @@ function DCLayout({ data }) {
 
   return (
     <div className="dc-layout">
+      <h1 className="app-header">DC Layout</h1>
       {Object.entries(data).map(([zoneKey, zone]) => {
-        const isZoneExpanded = expandedZones.includes(zoneKey);
-
+        const isZoneCollapsed = collapsedZones.includes(zoneKey);
         return (
-          <div key={zoneKey} className={`zone ${isZoneExpanded ? 'expanded' : ''}`}>
+          <div
+            key={zoneKey}
+            className={`zone ${!isZoneCollapsed ? "expanded" : ""}`}
+          >
             <div className="zone-header" onClick={() => toggleZone(zoneKey)}>
               <h3>{zoneKey}</h3>
             </div>
-            {isZoneExpanded && <div className="racks">{renderRacks(zone, zoneKey)}</div>}
+            {!isZoneCollapsed && (
+              <div className="racks">{renderRacks(zone)}</div>
+            )}
           </div>
         );
       })}

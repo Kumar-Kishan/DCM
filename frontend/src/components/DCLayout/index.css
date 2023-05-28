@@ -1,90 +1,125 @@
+body {
+  height: 100vh;
+  background-color: #222;
+}
 .dc-layout {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.app-header {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  text-transform: capitalize;
 }
 
 .zone {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f5f5f5;
-    transition: all 0.3s ease;
-    width: 100%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #333;
+  border-color: #444;
+  transition: all 0.3s ease;
+  width: 100%;
 }
 
 .zone.expanded {
-    height: auto;
-    padding-bottom: 10px;
+  height: auto;
+  padding-bottom: 10px;
 }
 
 .zone-header {
-    cursor: pointer;
+  cursor: pointer;
+  text-align: center;
+  font-weight: 800;
+  color: #fff;
+  /* capitalize first char */
+  text-transform: capitalize;
 }
 
 .racks {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 100%;
 }
 
 .rack {
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #fff;
-    width: 100%;
-    transition: all 0.3s ease;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #444;
+  border-color: #555;
+  width: 18%;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .rack {
+    width: 40%;
+  }
 }
 
 .rack-header {
-    cursor: pointer;
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  font-weight: bold;
+  text-transform: capitalize;
 }
 
 .servers {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  width: 100%;
+  align-content: center;
 }
 
 .server {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-    width: calc(33.33% - 10px);
-    /* Adjust the width as needed */
-    display: flex;
-    align-items: center;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #555;
+  border-color: #666;
 }
 
 .server-name {
-    font-weight: bold;
-    margin-right: 10px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-transform: capitalize;
+  color: #fff;
 }
 
 .server-temperature {
-    color: white;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-weight: bold;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: bold;
 }
 
 /* Temperature Color Coding */
 .server-temperature.low {
-    background-color: #27ae60;
-    /* Green */
+  background-color: #27ae60;
+  /* Green */
 }
 
 .server-temperature.medium {
-    background-color: #f1c40f;
-    /* Yellow */
+  background-color: #f1c40f;
+  /* Yellow */
 }
 
 .server-temperature.high {
-    background-color: #c0392b;
-    /* Red */
+  background-color: #c0392b;
+  /* Red */
 }
